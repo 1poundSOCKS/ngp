@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ckmwrwijleuc8"]
+
+[ext_resource type="Texture2D" uid="uid://dml3j8m40jlbi" path="res://art/enemyFlyingAlt_1.png" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://cgljg7ssc2pjj" path="res://art/enemyFlyingAlt_2.png" id="2_qi2p4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4gyqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qi2p4")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 51.0
+height = 102.0
+
+[node name="Enemy" type="RigidBody2D" unique_id=37610136]
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005075547]
+sprite_frames = SubResource("SpriteFrames_iifgy")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59789354]
+shape = SubResource("CapsuleShape2D_4gyqm")
