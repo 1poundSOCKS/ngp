@@ -287,4 +287,4 @@ tile_set = SubResource("TileSet_oi3di")
 position = Vector2(260, 536)
 
 [node name="Enemy" parent="." unique_id=37610136 instance=ExtResource("3_oi3di")]
-position = Vector2(748, 217)
+position = Vector2(742, 52.000015)
