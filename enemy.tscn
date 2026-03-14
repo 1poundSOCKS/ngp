@@ -18,11 +18,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
-radius = 38.0
-height = 92.0
+radius = 53.333332
+height = 140.0
 
 [node name="Enemy" type="RigidBody2D" unique_id=37610136]
-scale = Vector2(0.5, 0.5)
+rotation = -1.5707964
+scale = Vector2(0.3, 0.3)
+collision_layer = 2
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005075547]
@@ -30,5 +33,5 @@ sprite_frames = SubResource("SpriteFrames_iifgy")
 animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59789354]
-position = Vector2(12, 2)
+position = Vector2(-10, -4.7683716e-07)
 shape = SubResource("CapsuleShape2D_4gyqm")

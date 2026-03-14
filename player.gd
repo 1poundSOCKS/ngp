@@ -1,41 +1,41 @@
-extends Area2D
+extends CharacterBody2D
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -800.0
+const MAX_SPEED = 1000.0
+const FRICTION = 1000.0
 
 signal hit
 
-var screen_size # Size of the game window.
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	screen_size = get_viewport_rect().size
-	position = screen_size / 2
+	# Handle jump.
+	if Input.is_action_just_pressed("move_up") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit() # Closes the application
-	
-	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_pressed("move_right") and velocity.x < 0:
+		velocity.x += 2000 * delta
+		$AnimatedSprite2D.play()
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity.x += 500 * delta
+		$AnimatedSprite2D.play()
+	elif Input.is_action_pressed("move_left") and velocity.x > 0:
+		velocity.x -= 2000 * delta
+		$AnimatedSprite2D.play()
+	elif Input.is_action_pressed("move_left"):
+		velocity.x -= 500 * delta
 		$AnimatedSprite2D.play()
 	else:
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 		$AnimatedSprite2D.stop()
 
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	velocity = velocity.limit_length(MAX_SPEED)
 
+	move_and_slide()
 
-func _on_body_entered(body: Node2D) -> void:
-	print("Hello Godot!")
-	#get_tree().reload_current_scene()
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("hit!!!")
