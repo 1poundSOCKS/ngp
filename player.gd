@@ -38,4 +38,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Hello Godot!")
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()

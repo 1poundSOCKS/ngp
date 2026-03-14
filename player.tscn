@@ -36,6 +36,7 @@ radius = 53.0
 height = 130.0
 
 [node name="Player" type="Area2D" unique_id=1147818483]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1907296017]
