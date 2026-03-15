@@ -18,45 +18,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ryqyf"]
-radius = 52.0
-height = 130.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 0.0
-
-[sub_resource type="Gradient" id="Gradient_i3pqv"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hqtel"]
-gradient = SubResource("Gradient_i3pqv")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=263546938]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=687317585]
 sprite_frames = SubResource("SpriteFrames_x3sgo")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920696168]
-shape = SubResource("CapsuleShape2D_ryqyf")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=526006510]
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1249520358]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1249520358]
 shape = SubResource("CapsuleShape2D_i3pqv")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1026917208]
-position = Vector2(-2.0000458, 2.9999542)
-scale = Vector2(17.125, 16.906248)
-texture = SubResource("GradientTexture2D_hqtel")
+[node name="Area2D" type="Area2D" parent="." unique_id=526006510]
 
-[connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
