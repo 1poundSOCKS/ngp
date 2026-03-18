@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://byo8gdd1uwfdy" path="res://player.gd" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cc8cctjar8vj1" path="res://art/playerGrey_walk1.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bte8rbjluyhny" path="res://art/playerGrey_walk2.png" id="4_1jxqw"]
-[ext_resource type="Script" uid="uid://ce28lvvv6rhoh" path="res://camera_2d.gd" id="4_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3sgo"]
 animations = [{
@@ -36,12 +35,6 @@ animation = &"walk"
 shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=526006510]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1315737750 node_paths=PackedStringArray("target_player")]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-script = ExtResource("4_hqtel")
-target_player = NodePath("..")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
