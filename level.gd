@@ -2,7 +2,7 @@ extends Node2D
 
 @export var player : CharacterBody2D
 var scrollPosition : float = 100
-const SCROLL_SPEED : float = 100
+const SCROLL_SPEED : float = 250
 
 const ENEMY_SCENE = preload("res://enemy.tscn")
 
