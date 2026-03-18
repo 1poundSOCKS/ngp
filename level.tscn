@@ -19,3 +19,8 @@ position = Vector2(742, 52.000015)
 script = ExtResource("3_0b4ue")
 target_player = NodePath("../Player")
 level = NodePath("..")
+
+[node name="Timer" type="Timer" parent="." unique_id=1742531589]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
