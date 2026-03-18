@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func createNewEnemy() -> void:
 	
 	var newEnemy : RigidBody2D = ENEMY_SCENE.instantiate()
-	newEnemy.position = player.position + Vector2(0,-200)
+	newEnemy.position = Vector2(randf_range(-100.0, 100.0),scrollPosition - 1000)
 	add_child(newEnemy)
 
 
