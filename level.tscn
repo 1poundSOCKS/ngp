@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dspws0eeetu6w"]
 
+[ext_resource type="Script" uid="uid://cny6erv7cf0rh" path="res://level.gd" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://cvp1jy4nnpsly" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://ce28lvvv6rhoh" path="res://camera_2d.gd" id="3_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://ckmwrwijleuc8" path="res://enemy.tscn" id="3_oi3di"]
 
 [node name="Level" type="Node2D" unique_id=420403431]
+script = ExtResource("1_0b4ue")
 
 [node name="Player" parent="." unique_id=263546938 instance=ExtResource("2_vonw3")]
 position = Vector2(1053, 833)
@@ -12,6 +14,7 @@ position = Vector2(1053, 833)
 [node name="Enemy" parent="." unique_id=37610136 instance=ExtResource("3_oi3di")]
 position = Vector2(742, 52.000015)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=104816965 node_paths=PackedStringArray("target_player")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=104816965 node_paths=PackedStringArray("target_player", "level")]
 script = ExtResource("3_0b4ue")
 target_player = NodePath("../Player")
+level = NodePath("..")

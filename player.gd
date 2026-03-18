@@ -6,9 +6,10 @@ const MAX_SPEED = 1000.0
 const FRICTION = 1000.0
 
 
-#signal hit
-
 var bulletScene : Resource = preload("res://bullet.tscn")
+
+func _ready() -> void:
+	position = Vector2(0,0)
 
 func _physics_process(delta: float) -> void:
 
