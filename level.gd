@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var player : CharacterBody2D
 var scrollPosition : float = 100
 const SCROLL_SPEED : float = 100
 
@@ -10,4 +11,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	scrollPosition -= SCROLL_SPEED * delta
+	var scrollAmount : float = SCROLL_SPEED * delta
+	scrollPosition -= scrollAmount
+	player.position.y -= scrollAmount
