@@ -16,15 +16,15 @@ func _process(delta: float) -> void:
 	var scrollAmount : float = SCROLL_SPEED * delta
 	scrollPosition -= scrollAmount
 	player.position.y -= scrollAmount
+	$Boundary.position = Vector2(0,scrollPosition)
+	$Boundary/CollisionShape2D.shape.size = Vector2(800,1800)
 
 func createNewEnemy() -> void:
 	
-	var newEnemy : RigidBody2D = ENEMY_SCENE.instantiate()
-	newEnemy.position = Vector2(randf_range(-100.0, 100.0),scrollPosition - 1000)
+	var newEnemy : CharacterBody2D = ENEMY_SCENE.instantiate()
+	newEnemy.position = Vector2(randf_range(-100.0, 100.0),scrollPosition - 800)
 	add_child(newEnemy)
 
 
 func _on_timer_timeout() -> void:
 	createNewEnemy()
-	print("timer")
-	

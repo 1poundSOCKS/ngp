@@ -26,14 +26,11 @@ func _physics_process(delta: float) -> void:
 		bullet.position = position + Vector2(0,-100)
 		bullet.velocity = Vector2(0,-1000)
 		get_parent().add_child(bullet)
-		#get_parent().move_child(bullet, 0)
-
+	
 	velocity = direction * SPEED * delta
-
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	if body.name == "Enemy":
-		print("hit!!!")
 		get_tree().reload_current_scene()

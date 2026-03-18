@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://ce28lvvv6rhoh" path="res://camera_2d.gd" id="3_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://ckmwrwijleuc8" path="res://enemy.tscn" id="3_oi3di"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
+
 [node name="Level" type="Node2D" unique_id=420403431 node_paths=PackedStringArray("player")]
 script = ExtResource("1_0b4ue")
 player = NodePath("Player")
@@ -23,4 +25,10 @@ level = NodePath("..")
 [node name="Timer" type="Timer" parent="." unique_id=1742531589]
 autostart = true
 
+[node name="Boundary" type="Area2D" parent="." unique_id=284313403]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=29895809]
+shape = SubResource("RectangleShape2D_0b4ue")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_exited" from="Boundary" to="Enemy" method="_on_boundary_area_shape_exited"]
