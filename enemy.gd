@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	print("Enemy: " + area.name)
 	if area.name == "Bullet":
 		queue_free()
 		area.queue_free()

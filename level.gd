@@ -28,6 +28,7 @@ func createNewEnemy() -> void:
 func _on_timer_timeout() -> void:
 	createNewEnemy()
 
-
 func _on_boundary_area_exited(area: Area2D) -> void:
-	area.queue_free()
+	print("Boundary: " + area.name)
+	if area.name != "Player":
+		area.queue_free()

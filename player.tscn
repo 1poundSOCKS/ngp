@@ -24,8 +24,6 @@ height = 124.0
 
 [node name="Player" type="Area2D" unique_id=1769171507]
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=687317585]
@@ -34,3 +32,5 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1249520358]
 shape = SubResource("CapsuleShape2D_i3pqv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

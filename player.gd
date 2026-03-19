@@ -8,6 +8,7 @@ var bulletScene : Resource = preload("res://bullet.tscn")
 
 func _ready() -> void:
 	position = Vector2(0,0)
+	print("started")
 
 func _physics_process(delta: float) -> void:
 
@@ -29,5 +30,11 @@ func _physics_process(delta: float) -> void:
 	position += velocity * delta
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Enemy":
+		queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("Player: " + area.name)
 	if area.name == "Enemy":
 		queue_free()
