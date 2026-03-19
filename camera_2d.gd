@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var target_player: CharacterBody2D
+@export var target_player: Area2D
 @export var level : Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

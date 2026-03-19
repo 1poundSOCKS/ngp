@@ -9,3 +9,8 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Hello")
 	body.queue_free()
 	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "Enemy":
+		area.queue_free()

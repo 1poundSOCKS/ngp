@@ -1,10 +1,8 @@
-extends CharacterBody2D
+extends Area2D
 
-
-const SPEED = 30000.0
+const SPEED = 300.0
 const MAX_SPEED = 1000.0
 const FRICTION = 1000.0
-
 
 var bulletScene : Resource = preload("res://bullet.tscn")
 
@@ -27,10 +25,9 @@ func _physics_process(delta: float) -> void:
 		bullet.velocity = Vector2(0,-1000)
 		get_parent().add_child(bullet)
 	
-	velocity = direction * SPEED * delta
-	move_and_slide()
+	var velocity : Vector2 = direction * SPEED
+	position += velocity * delta
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	
-	if body.name == "Enemy":
-		get_tree().reload_current_scene()
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Enemy":
+		queue_free()

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player : CharacterBody2D
+@export var player : Area2D
 var scrollPosition : float = 100
 const SCROLL_SPEED : float = 250
 
@@ -21,10 +21,13 @@ func _process(delta: float) -> void:
 
 func createNewEnemy() -> void:
 	
-	var newEnemy : CharacterBody2D = ENEMY_SCENE.instantiate()
-	newEnemy.position = Vector2(randf_range(-100.0, 100.0),scrollPosition - 800)
+	var newEnemy : Area2D = ENEMY_SCENE.instantiate()
+	newEnemy.position = Vector2(randf_range(-200.0, 200.0),scrollPosition - 800)
 	add_child(newEnemy)
-
 
 func _on_timer_timeout() -> void:
 	createNewEnemy()
+
+
+func _on_boundary_area_exited(area: Area2D) -> void:
+	area.queue_free()

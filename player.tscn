@@ -19,9 +19,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
-radius = 0.0
+radius = 52.0
+height = 124.0
 
-[node name="Player" type="CharacterBody2D" unique_id=263546938]
+[node name="Player" type="Area2D" unique_id=1769171507]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
@@ -33,8 +34,3 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1249520358]
 shape = SubResource("CapsuleShape2D_i3pqv")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=526006510]
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
