@@ -4,16 +4,13 @@ extends Area2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#var boundary : Area2D = $"../Boundary"
-	#if overlaps_body(boundary):
 	pass
-
 
 func _on_area_entered(area: Area2D) -> void:
 	print("Enemy: " + area.name)
+	Global.score += 100
 	if area.name == "Bullet":
 		queue_free()
 		area.queue_free()

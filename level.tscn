@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cny6erv7cf0rh" path="res://level.gd" id="1_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://cvp1jy4nnpsly" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://ce28lvvv6rhoh" path="res://camera_2d.gd" id="3_0b4ue"]
+[ext_resource type="Script" uid="uid://en7ojh77o7du" path="res://score.gd" id="4_0b4ue"]
+[ext_resource type="Script" uid="uid://mgnl5uum78iu" path="res://enemy_container.gd" id="5_f2txt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
 
@@ -11,9 +13,10 @@ script = ExtResource("1_0b4ue")
 player = NodePath("Player")
 
 [node name="Player" parent="." unique_id=263546938 instance=ExtResource("2_vonw3")]
-position = Vector2(1053, 833)
+position = Vector2(523, 1307)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=104816965 node_paths=PackedStringArray("target_player", "level")]
+position = Vector2(247, 182)
 script = ExtResource("3_0b4ue")
 target_player = NodePath("../Player")
 level = NodePath("..")
@@ -22,9 +25,25 @@ level = NodePath("..")
 autostart = true
 
 [node name="Boundary" type="Area2D" parent="." unique_id=284313403]
+position = Vector2(651, 1081)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=29895809]
 shape = SubResource("RectangleShape2D_0b4ue")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=921034966]
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1171199721]
+offset_left = 342.0
+offset_top = 30.0
+offset_right = 572.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 30
+text = "THIS IS A TEST LABEL"
+script = ExtResource("4_0b4ue")
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=1378720819]
+script = ExtResource("5_f2txt")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="create_enemy" from="EnemyContainer" to="EnemyContainer" method="_on_create_enemy"]

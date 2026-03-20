@@ -7,5 +7,4 @@ extends Camera2D
 func _process(delta: float) -> void:
 	if target_player:
 		var player_pos : Vector2 = target_player.global_position
-		#position = player_pos - Vector2(200,200)
 		position = Vector2(0,level.scrollPosition)
