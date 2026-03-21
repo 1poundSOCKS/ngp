@@ -15,6 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_create_enemy(position: Vector2) -> void:
 	var newEnemy : Area2D = ENEMY_SCENE.instantiate()
-	#newEnemy.position = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)
 	newEnemy.position = position
 	add_child(newEnemy)

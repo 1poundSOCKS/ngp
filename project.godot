@@ -21,6 +21,7 @@ Global="*uid://xy71wsyi20jw"
 
 [debug]
 
+settings/stdout/print_fps=true
 gdscript/warnings/untyped_declaration=2
 
 [display]

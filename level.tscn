@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvp1jy4nnpsly" path="res://player.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://ce28lvvv6rhoh" path="res://camera_2d.gd" id="3_0b4ue"]
 [ext_resource type="Script" uid="uid://en7ojh77o7du" path="res://score.gd" id="4_0b4ue"]
+[ext_resource type="Script" uid="uid://bb4e06j23peco" path="res://boundary.gd" id="4_1ainy"]
 [ext_resource type="Script" uid="uid://mgnl5uum78iu" path="res://enemy_container.gd" id="5_f2txt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
@@ -26,6 +27,7 @@ autostart = true
 
 [node name="Boundary" type="Area2D" parent="." unique_id=284313403]
 position = Vector2(651, 1081)
+script = ExtResource("4_1ainy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=29895809]
 shape = SubResource("RectangleShape2D_0b4ue")
@@ -45,5 +47,5 @@ script = ExtResource("4_0b4ue")
 script = ExtResource("5_f2txt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_exited" from="Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="area_exited" from="Boundary" to="Boundary" method="_on_area_exited"]
 [connection signal="create_enemy" from="EnemyContainer" to="EnemyContainer" method="_on_create_enemy"]

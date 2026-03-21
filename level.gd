@@ -20,21 +20,6 @@ func _process(delta: float) -> void:
 	$Boundary.position = Vector2(0,scrollPosition)
 	$Boundary/CollisionShape2D.shape.size = Vector2(800,1800)
 
-func createNewEnemy() -> void:
-
+func _on_timer_timeout() -> void:
 	var position : Vector2 = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)
 	$EnemyContainer.emit_signal("create_enemy", position)
-
-	#var newEnemy : Area2D = ENEMY_SCENE.instantiate()
-	#newEnemy.position = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)
-	#add_child(newEnemy)
-
-func _on_timer_timeout() -> void:
-	createNewEnemy()
-
-func _on_boundary_area_exited(area: Area2D) -> void:
-	print("Boundary: " + area.name)
-	Global.score += 100
-
-	if area.name != "Player":
-		area.queue_free()
