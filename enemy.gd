@@ -11,6 +11,6 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	print("Enemy: " + area.name)
 	Global.score += 100
-	if area.name == "Bullet":
+	#if area.name == "Bullet":
+	if area.name != "Boundary":
 		queue_free()
-		area.queue_free()
