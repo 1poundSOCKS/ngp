@@ -1,12 +1,13 @@
 extends Node
 
-var player_score : int
+#var player_score : int
 
 signal score_changed(new_score : int)
 
 var score : int = 0:
 	set(value):
 		score = value
+		print("Score: " + str(score))
 		score_changed.emit(score) # Tell everyone the score changed
 
 # Called when the node enters the scene tree for the first time.

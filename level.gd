@@ -10,13 +10,15 @@ const ENEMY_SCENE = preload("res://enemy.tscn")
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	var scrollAmount : float = SCROLL_SPEED * delta
 	scrollPosition -= scrollAmount
+	
 	if player != null:
 		player.position.y -= scrollAmount
+		
 	$Boundary.position = Vector2(0,scrollPosition)
 	$Boundary/CollisionShape2D.shape.size = Vector2(800,1800)
 
