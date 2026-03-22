@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 300.0
+const SPEED = 500.0
 const MAX_SPEED = 1000.0
 const FRICTION = 1000.0
 
