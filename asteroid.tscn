@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b630g3mkuifgf"]
+
+[ext_resource type="Texture2D" uid="uid://bky60xnbl46og" path="res://art/floor-tile-001.png" id="1_u87q6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u87q6"]
+size = Vector2(74, 70)
+
+[node name="Asteroid" type="Area2D" unique_id=1886655991]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487933371]
+position = Vector2(2.861023e-06, -7.1525574e-07)
+scale = Vector2(4.7499995, 4.4999995)
+texture = ExtResource("1_u87q6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=621328428]
+shape = SubResource("RectangleShape2D_u87q6")

@@ -24,4 +24,9 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var position : Vector2 = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)
-	$EnemyContainer.emit_signal("create_enemy", position)
+	var type : int = randi_range(1, 2)
+	match type:
+		1:
+			$EnemyContainer.emit_signal("create_enemy", position)
+		2:
+			$EnemyContainer.emit_signal("create_asteroid", position)

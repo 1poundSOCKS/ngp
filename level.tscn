@@ -49,4 +49,5 @@ script = ExtResource("5_f2txt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="Boundary" to="Boundary" method="_on_area_exited"]
+[connection signal="create_asteroid" from="EnemyContainer" to="EnemyContainer" method="_on_create_asteroid"]
 [connection signal="create_enemy" from="EnemyContainer" to="EnemyContainer" method="_on_create_enemy"]
