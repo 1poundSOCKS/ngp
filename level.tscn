@@ -49,9 +49,10 @@ position = Vector2(-4, 0)
 script = ExtResource("5_f2txt")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=448354912]
+show_behind_parent = true
 repeat_size = Vector2(128, 128)
 autoscroll = Vector2(0, -50)
-repeat_times = 30
+repeat_times = 35
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1923398003]
 texture = ExtResource("7_n6hdu")
