@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://en7ojh77o7du" path="res://score.gd" id="4_0b4ue"]
 [ext_resource type="Script" uid="uid://bb4e06j23peco" path="res://boundary.gd" id="4_1ainy"]
 [ext_resource type="Script" uid="uid://mgnl5uum78iu" path="res://enemy_container.gd" id="5_f2txt"]
+[ext_resource type="Texture2D" uid="uid://ct71act6qg8yl" path="res://art/starfield.png" id="7_n6hdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
 
@@ -46,6 +47,14 @@ script = ExtResource("4_0b4ue")
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=1378720819]
 position = Vector2(-4, 0)
 script = ExtResource("5_f2txt")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=448354912]
+repeat_size = Vector2(128, 128)
+autoscroll = Vector2(0, -50)
+repeat_times = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1923398003]
+texture = ExtResource("7_n6hdu")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="Boundary" to="Boundary" method="_on_area_exited"]
