@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		player.position.y -= scrollAmount
 		
 	$Boundary.position = Vector2(0,scrollPosition)
-	$Boundary/CollisionShape2D.shape.size = Vector2(800,1800)
+	$Boundary/CollisionShape2D.shape.size = Vector2(800,1600)
 
 func _on_timer_timeout() -> void:
 	var position : Vector2 = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)

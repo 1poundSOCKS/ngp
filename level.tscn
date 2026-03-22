@@ -44,6 +44,7 @@ text = "THIS IS A TEST LABEL"
 script = ExtResource("4_0b4ue")
 
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=1378720819]
+position = Vector2(-4, 0)
 script = ExtResource("5_f2txt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

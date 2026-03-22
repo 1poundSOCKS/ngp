@@ -26,14 +26,32 @@ func _physics_process(delta: float) -> void:
 		bullet.velocity = Vector2(0,-1000)
 		get_parent().add_child(bullet)
 	
+	clamp_player()
 	var velocity : Vector2 = direction * SPEED
-	position += velocity * delta
-
-#func _on_area_entered(area: Area2D) -> void:
-	#print("Player: " + area.name)
-	#if area.name == "Enemy":
-		#queue_free()
-
+	var oldPosition : Vector2 = position
+	position += velocity * delta	
 
 func _on_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
+
+func clamp_player() -> void:
+	# 1. Get the boundaries of the Container
+	var boundary_shape : CollisionShape2D = $"../Boundary/CollisionShape2D"
+	var container_shape : RectangleShape2D = boundary_shape.shape
+	var container_pos : Vector2 = boundary_shape.global_position
+
+	var c_size : Vector2 = container_shape.size
+	
+	# 2. Get Actor boundaries (Capsule-specific)
+	var actor_shape : CapsuleShape2D = $CollisionShape2D.shape
+	var a_width : float = actor_shape.radius * 2
+	var a_height : float = actor_shape.height
+	
+	# 3. Calculate safe limits
+	# (Container width/2) - (Actor width/2)
+	var limit_y : float = (c_size.y - a_height) / 2		
+	var limit_x : float = (c_size.x - a_width) / 2
+
+	# 4. Apply the Clamp relative to the Container's center
+	global_position.x = clamp(global_position.x, container_pos.x - limit_x, container_pos.x + limit_x)
+	global_position.y = clamp(global_position.y, container_pos.y - limit_y, container_pos.y + limit_y)

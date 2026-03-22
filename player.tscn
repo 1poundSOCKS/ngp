@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cc8cctjar8vj1" path="res://art/playerGrey_walk1.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bte8rbjluyhny" path="res://art/playerGrey_walk2.png" id="4_1jxqw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3sgo"]
 animations = [{
 "frames": [{
@@ -25,6 +27,7 @@ height = 124.0
 [node name="Player" type="Area2D" unique_id=1769171507]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_sweqy")
+boundary_shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=687317585]
 sprite_frames = SubResource("SpriteFrames_x3sgo")
