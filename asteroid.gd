@@ -1,17 +1,12 @@
 extends Area2D
 
-const SPEED : Vector2 = Vector2(0,200)
+const SPEED : Vector2 = Vector2(0,500)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += SPEED * delta
-
-func _on_area_entered(area: Area2D) -> void:
-	print("Enemy: " + area.name)
-	if area.name != "Boundary":
-		Global.score += 10
-		queue_free()

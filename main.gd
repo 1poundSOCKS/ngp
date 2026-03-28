@@ -7,5 +7,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("quit"):
+	
+	if Input.is_action_just_pressed("start"):
+		pass
+	elif  Input.is_action_just_pressed("quit"):
 		get_tree().quit() # Closes the application

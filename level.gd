@@ -2,7 +2,8 @@ extends Node2D
 
 @export var player : Area2D
 var scrollPosition : float = 100
-const SCROLL_SPEED : float = 350
+#const SCROLL_SPEED : float = 350
+const SCROLL_SPEED : float = 0
 
 const ENEMY_SCENE = preload("res://enemy.tscn")
 
@@ -20,7 +21,7 @@ func _process(delta: float) -> void:
 		player.position.y -= scrollAmount
 		
 	$Boundary.position = Vector2(0,scrollPosition)
-	$Boundary/CollisionShape2D.shape.size = Vector2(800,1600)
+	$Boundary/CollisionShape2D.shape.size = Vector2(1600,1600)
 
 func _on_timer_timeout() -> void:
 	var position : Vector2 = Vector2(randf_range(-400.0, 400.0),scrollPosition - 800)
