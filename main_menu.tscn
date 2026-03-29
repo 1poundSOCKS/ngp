@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bdef1l2y7xjq8" path="res://main_menu.gd" id="1_06t4h"]
 
+[sub_resource type="SystemFont" id="SystemFont_06t4h"]
+
 [node name="MainMenu" type="Control" unique_id=1116381968]
 layout_mode = 3
 anchors_preset = 15
@@ -29,12 +31,14 @@ theme_override_constants/separation = 20
 [node name="StartGame" type="Button" parent="VBoxContainer" unique_id=30510786]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_06t4h")
 theme_override_font_sizes/font_size = 50
 text = "Start game"
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=725223307]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_06t4h")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
