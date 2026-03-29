@@ -31,9 +31,6 @@ func _physics_process(delta: float) -> void:
 	var oldPosition : Vector2 = position
 	position += velocity * delta	
 
-func _on_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
-
 func clamp_player() -> void:
 	# 1. Get the boundaries of the Container
 	var boundary_shape : CollisionShape2D = $"../Boundary/CollisionShape2D"
@@ -55,3 +52,8 @@ func clamp_player() -> void:
 	# 4. Apply the Clamp relative to the Container's center
 	global_position.x = clamp(global_position.x, container_pos.x - limit_x, container_pos.x + limit_x)
 	global_position.y = clamp(global_position.y, container_pos.y - limit_y, container_pos.y + limit_y)
+
+func _on_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.name != "Boundary":
+		get_tree().change_scene_to_file("res://main_menu.tscn")
