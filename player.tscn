@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://cvp1jy4nnpsly"]
 
 [ext_resource type="Script" uid="uid://byo8gdd1uwfdy" path="res://player.gd" id="1_sweqy"]
-[ext_resource type="Texture2D" uid="uid://dof8o0e7wsgtx" path="res://art/player.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://p03pq02r2s6v" path="res://art/16ShipCollectionPRE2.png" id="2_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(82, 65, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3sgo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_onrkg")
+"texture": SubResource("AtlasTexture_i3pqv")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -23,7 +27,8 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=687317585]
-scale = Vector2(20, 20)
+rotation = 4.712389
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_x3sgo")
 animation = &"new_animation"
 

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bb4e06j23peco" path="res://boundary.gd" id="4_1ainy"]
 [ext_resource type="Script" uid="uid://mgnl5uum78iu" path="res://enemy_container.gd" id="5_f2txt"]
 [ext_resource type="Texture2D" uid="uid://ct71act6qg8yl" path="res://art/starfield.png" id="7_n6hdu"]
+[ext_resource type="Texture2D" uid="uid://p03pq02r2s6v" path="res://art/16ShipCollectionPRE2.png" id="8_km5ld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
 
@@ -56,6 +57,14 @@ repeat_times = 35
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1923398003]
 texture = ExtResource("7_n6hdu")
+
+[node name="ShipSprites" type="Sprite2D" parent="." unique_id=345443203]
+visible = false
+scale = Vector2(100, 100)
+texture = ExtResource("8_km5ld")
+hframes = 10
+vframes = 10
+frame = 22
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="Boundary" to="Boundary" method="_on_area_exited"]

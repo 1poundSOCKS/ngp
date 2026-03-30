@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cxaj037fgeplk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8g80g"]
+load_path = "res://.godot/imported/16ShipCollectionPRE2.png-1a4a43a546529bb42072f40aa20bf35e.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_8g80g")
