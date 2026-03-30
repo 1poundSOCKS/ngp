@@ -28,7 +28,7 @@ script = ExtResource("1_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=687317585]
 rotation = 4.712389
-scale = Vector2(10, 10)
+scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_x3sgo")
 animation = &"new_animation"
 
