@@ -9,8 +9,6 @@ var shootEffect : AudioStreamPlayer
 
 func _ready() -> void:
 	position = Vector2(0,0)
-	var stream : Resource = load("res://sound/shootEffect.wav")
-	$ShootEffect.stream = stream
 	print("started")
 
 func _physics_process(delta: float) -> void:
