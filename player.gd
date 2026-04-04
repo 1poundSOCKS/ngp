@@ -5,9 +5,12 @@ const MAX_SPEED = 1000.0
 const FRICTION = 1000.0
 
 var bulletScene : Resource = preload("res://bullet.tscn")
+var shootEffect : AudioStreamPlayer
 
 func _ready() -> void:
 	position = Vector2(0,0)
+	var stream : Resource = load("res://sound/shootEffect.wav")
+	$ShootEffect.stream = stream
 	print("started")
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		bullet.position = position + Vector2(0,-100)
 		bullet.velocity = Vector2(0,-1000)
 		get_parent().add_child(bullet)
+		$ShootEffect.play()
 	
 	clamp_player()
 	var velocity : Vector2 = direction * SPEED
